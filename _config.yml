@@ -26,6 +26,9 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jsonc.org" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  DecimalTurn
 
+# Syntax highlighting (We are using Highlight.js instead)
+highlighter: none
+
 # Build settings
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
