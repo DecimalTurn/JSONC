@@ -19,9 +19,9 @@ Single-line comments start with `//` and extend to the end of the line.
 
 ```jsonc
 {
-  // This is a single-line comment
-  "name": "John Doe",
-  "age": 30
+    // This is a single-line comment
+    "name": "John Doe",
+    "age": 30
 }
 ```
 
@@ -31,12 +31,12 @@ Multi-line comments start with `/*` and end with `*/`. They can span multiple li
 
 ```jsonc
 {
-  /*
-    This is a multi-line comment
-    that spans multiple lines
-  */
-  "name": "Jane Doe",
-  "age": 25
+    /*
+      This is a multi-line comment
+      that spans multiple lines
+    */
+    "name": "Jane Doe",
+    "age": 25
 }
 ```
 
