@@ -32,7 +32,10 @@ highlighter: none
 # Sass
 sass:
   sass_dir: _sass
-  style: compressed
+  #style: compressed
+
+include:
+  - assets/css
 
 # Build settings
 remote_theme: pages-themes/cayman@v0.2.0

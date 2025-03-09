@@ -1,5 +1,0 @@
----
----
-
-@import "{{ site.theme }}";
-@import "custom"; /* Import the custom styles */
