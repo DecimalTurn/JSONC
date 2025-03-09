@@ -2,15 +2,4 @@
 ---
 
 @import "{{ site.theme }}";
-
-
-/* Custom Styles*/
-
-/* Custom Highlight.js Styles */
-.hljs-error {
-    color: red !important;
-    font-weight: bold;
-    background-color: rgba(255, 0, 0, 0.2);
-    border-radius: 3px;
-    padding: 2px 4px;
-  }
+@import "custom"; /* Import the custom styles */
