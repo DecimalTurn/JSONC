@@ -41,4 +41,26 @@
     </main>
   </body>
   <script>hljs.highlightAll();</script>
+
+  <!-- Invalid syntax highlighting-->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var codeBlocks = document.querySelectorAll("code.language-jsonc");
+  
+      codeBlocks.forEach((codeBlock) => {
+        var spans = codeBlock.querySelectorAll("span");
+  
+        for (let i = 1; i < spans.length; i++) {
+          if (
+            spans[i].classList.contains("hljs-number") &&
+            spans[i - 1].classList.contains("hljs-comment") &&
+            (i - 2 >= 0 && spans[i - 2].classList.contains("hljs-number"))
+          ) {
+            spans[i].classList.replace("hljs-number", "hljs-error");
+          }
+        }
+      });
+    });
+  </script>
+
 </html>
