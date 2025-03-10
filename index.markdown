@@ -50,6 +50,19 @@ Comments in JSONC are ignored during parsing, allowing developers to annotate th
 
 ## File extensions
 
+The recommended file extension for JSONC documents is `.jsonc`.
+
+The extension `.json` should be avoided, but is supported if a mode line at the start of the file:
+
+For instance:
+```jsonc
+// -*- mode: jsonc -*-
+```
+or
+```jsonc
+// -*- jsonc -*-
+```
+
 ## Main Use Cases
 
 - Configuration Files: JSONC is useful for configuration files where comments can provide explanations or instructions.
@@ -63,14 +76,19 @@ Here is a non-exhaustive list:
 **JavaScript/TypeScript**:
 - [microsoft/node-jsonc-parser](https://github.com/microsoft/node-jsonc-parser)
 
-**Python**
-- [NickolaiBeloguzov/jsonc-parser](https://github.com/NickolaiBeloguzov/jsonc-parser)
-
 **C++**
 - [stephenberry/glaze](https://github.com/stephenberry/glaze)
-  
-**Go**
-- [tidwall/jsonc](https://github.com/tidwall/jsonc)
 
 **Elexir**
 - [massivefermion/jsonc](https://github.com/massivefermion/jsonc)
+
+**Go**
+- [tidwall/jsonc](https://github.com/tidwall/jsonc)
+
+**Python**
+- [NickolaiBeloguzov/jsonc-parser](https://github.com/NickolaiBeloguzov/jsonc-parser)
+
+**Rust**
+- [dprint/jsonc-parser](https://github.com/dprint/jsonc-parser)
+
+
