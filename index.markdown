@@ -11,7 +11,7 @@ JSONC (JSON with Comments) is an extension of JSON (JavaScript Object Notation) 
 
 ## Syntax
 
-JSONC follows the same syntax rules as JSON with the addition of JavaScript-style comments. Comments can be either single-line or multi-line.
+JSONC follows the same syntax rules as JSON with the addition of JavaScript style comments. Comments can be either single-line or multi-line.
 
 ### Single-line Comments
 
