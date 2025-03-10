@@ -52,7 +52,7 @@ Comments in JSONC are ignored during parsing, allowing developers to annotate th
 
 The recommended file extension for JSONC documents is `.jsonc`.
 
-The extension `.json` should be avoided, but is supported if a mode line at the start of the file:
+The extension `.json` should be avoided, but is supported if a mode line is present at the start of the file:
 
 For instance:
 ```jsonc
