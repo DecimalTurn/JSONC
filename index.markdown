@@ -88,9 +88,14 @@ Try out JSONC validation directly in your browser:
   <div id="validation-result" class="validation-result"></div>
 </div>
 
-<script src="https://unpkg.com/jsonc-parser@3.2.0/lib/umd/main.js"></script>
+<script type="module">
+import * as jsoncParser from 'https://cdn.skypack.dev/jsonc-parser@3.2.0';
+
+// Make the parser available globally for the onclick handlers
+window.jsoncParser = jsoncParser;
+</script>
 <script>
-function validateJSONC() {
+async function validateJSONC() {
   const input = document.getElementById('jsonc-input');
   const result = document.getElementById('validation-result');
   const validateBtn = document.getElementById('validate-btn');
@@ -106,9 +111,16 @@ function validateJSONC() {
   validateBtn.disabled = true;
   
   try {
-    // Parse the JSONC using microsoft/node-jsonc-parser
+    // Wait for the ES module to be loaded
+    if (!window.jsoncParser) {
+      result.innerHTML = '<div class="error">JSONC parser library is still loading. Please try again in a moment.</div>';
+      validateBtn.textContent = 'Validate JSONC';
+      validateBtn.disabled = false;
+      return;
+    }
+    
     const parseErrors = [];
-    const parsed = jsonc.parse(jsoncText, parseErrors);
+    const parsed = window.jsoncParser.parse(jsoncText, parseErrors);
     
     if (parseErrors.length > 0) {
       let errorMessages = parseErrors.map(error => {
@@ -151,22 +163,21 @@ function clearValidator() {
 function getErrorMessage(errorCode) {
   const errorMessages = {
     1: 'Invalid symbol',
-    2: 'Invalid number',
-    3: 'Invalid string',
-    4: 'Invalid character',
-    5: 'Unexpected end of comment',
-    6: 'Unexpected end of string',
-    7: 'Unexpected end of number',
-    8: 'Invalid character in string escape sequence',
-    9: 'Invalid Unicode escape sequence',
-    10: 'Invalid escape character',
-    11: 'Unexpected end of file',
-    12: 'Property name expected',
-    13: 'Value expected',
-    14: 'Colon expected',
-    15: 'Comma expected',
-    16: 'Closing bracket expected',
-    17: 'Closing brace expected'
+    2: 'Invalid number format',
+    3: 'Property name expected',
+    4: 'Value expected',
+    5: 'Colon expected',
+    6: 'Comma expected',
+    7: 'Closing brace expected',
+    8: 'Closing bracket expected',
+    9: 'End of file expected',
+    10: 'Invalid comment token',
+    11: 'Unexpected end of comment',
+    12: 'Unexpected end of string',
+    13: 'Unexpected end of number',
+    14: 'Invalid Unicode',
+    15: 'Invalid escape character',
+    16: 'Invalid character'
   };
   return errorMessages[errorCode] || `Error code ${errorCode}`;
 }
