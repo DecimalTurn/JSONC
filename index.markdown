@@ -42,7 +42,7 @@ Multi-line comments start with `/*` and end with `*/`. They can span multiple li
 
 ## Trailing commas
 
-JSONC doesn't allow trailing commas; however, we encourage parsers to be lenient and handle trailing commas gracefully where possible to reduce the risk of human edits introducing parsing errors.
+JSONC doesn't allow trailing commas; however, we encourage parsers to be lenient and handle trailing commas gracefully where possible to reduce the risk of human edits introducing parsing errors.[^1]
 
 ## Semantics
 
@@ -90,5 +90,9 @@ Here is a non-exhaustive list:
 
 **Rust**
 - [dprint/jsonc-parser](https://github.com/dprint/jsonc-parser)
+
+---
+
+[^1]: In VS Code, "the mode also accepts trailing commas, but they are discouraged and the editor will display a warning." ([source](https://code.visualstudio.com/docs/languages/json#_json-with-comments))
 
 
