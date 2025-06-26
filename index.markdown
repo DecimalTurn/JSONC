@@ -68,6 +68,116 @@ or
 - Configuration Files: JSONC is useful for configuration files where comments can provide explanations or instructions.
 - Data Annotation: JSONC allows developers to annotate JSON data with comments for better understanding and maintenance.
 
+## JSONC Validator
+
+Try out JSONC validation directly in your browser:
+
+<div class="jsonc-validator">
+  <textarea id="jsonc-input" placeholder="Enter your JSONC data here...
+{
+  // This is a comment
+  &quot;name&quot;: &quot;Example&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;
+}" rows="10"></textarea>
+  
+  <div class="validator-controls">
+    <button id="validate-btn" onclick="validateJSONC()">Validate JSONC</button>
+    <button id="clear-btn" onclick="clearValidator()">Clear</button>
+  </div>
+  
+  <div id="validation-result" class="validation-result"></div>
+</div>
+
+<script src="https://unpkg.com/jsonc-parser@3.2.0/lib/umd/main.js"></script>
+<script>
+function validateJSONC() {
+  const input = document.getElementById('jsonc-input');
+  const result = document.getElementById('validation-result');
+  const validateBtn = document.getElementById('validate-btn');
+  
+  const jsoncText = input.value.trim();
+  
+  if (!jsoncText) {
+    result.innerHTML = '<div class="error">Please enter some JSONC data to validate.</div>';
+    return;
+  }
+  
+  validateBtn.textContent = 'Validating...';
+  validateBtn.disabled = true;
+  
+  try {
+    // Parse the JSONC using microsoft/node-jsonc-parser
+    const parseErrors = [];
+    const parsed = jsoncParser.parse(jsoncText, parseErrors);
+    
+    if (parseErrors.length > 0) {
+      let errorMessages = parseErrors.map(error => {
+        const line = jsoncText.substring(0, error.offset).split('\n').length;
+        const column = error.offset - jsoncText.lastIndexOf('\n', error.offset - 1);
+        return `Line ${line}, Column ${column}: ${getErrorMessage(error.error)}`;
+      }).join('<br>');
+      
+      result.innerHTML = `<div class="error">
+        <strong>❌ Invalid JSONC</strong><br>
+        ${errorMessages}
+      </div>`;
+    } else {
+      const jsonString = JSON.stringify(parsed, null, 2);
+      result.innerHTML = `<div class="success">
+        <strong>✅ Valid JSONC!</strong><br>
+        Successfully parsed ${Object.keys(parsed || {}).length} top-level properties.
+        <details>
+          <summary>Parsed JSON (click to expand)</summary>
+          <pre><code>${escapeHtml(jsonString)}</code></pre>
+        </details>
+      </div>`;
+    }
+  } catch (error) {
+    result.innerHTML = `<div class="error">
+      <strong>❌ Parsing Error</strong><br>
+      ${escapeHtml(error.message)}
+    </div>`;
+  }
+  
+  validateBtn.textContent = 'Validate JSONC';
+  validateBtn.disabled = false;
+}
+
+function clearValidator() {
+  document.getElementById('jsonc-input').value = '';
+  document.getElementById('validation-result').innerHTML = '';
+}
+
+function getErrorMessage(errorCode) {
+  const errorMessages = {
+    1: 'Invalid symbol',
+    2: 'Invalid number',
+    3: 'Invalid string',
+    4: 'Invalid character',
+    5: 'Unexpected end of comment',
+    6: 'Unexpected end of string',
+    7: 'Unexpected end of number',
+    8: 'Invalid character in string escape sequence',
+    9: 'Invalid Unicode escape sequence',
+    10: 'Invalid escape character',
+    11: 'Unexpected end of file',
+    12: 'Property name expected',
+    13: 'Value expected',
+    14: 'Colon expected',
+    15: 'Comma expected',
+    16: 'Closing bracket expected',
+    17: 'Closing brace expected'
+  };
+  return errorMessages[errorCode] || `Error code ${errorCode}`;
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+</script>
+
 ## Tools and Libraries
 Several tools and libraries support JSONC, enabling developers to parse and generate JSONC data easily.
 
