@@ -108,7 +108,7 @@ function validateJSONC() {
   try {
     // Parse the JSONC using microsoft/node-jsonc-parser
     const parseErrors = [];
-    const parsed = jsonc.parse(jsoncText, parseErrors);
+    const parsed = jsoncParser.parse(jsoncText, parseErrors);
     
     if (parseErrors.length > 0) {
       let errorMessages = parseErrors.map(error => {

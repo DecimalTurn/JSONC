@@ -1,0 +1,129 @@
+---
+---
+
+@import "jekyll-theme-cayman";
+
+/* Custom Highlight.js Styles */
+.hljs-error {
+    color: red !important;
+    font-weight: bold;
+    background-color: rgba(255, 0, 0, 0.2);
+    border-radius: 3px;
+    padding: 2px 4px;
+}
+
+/* JSONC Validator Styles */
+.jsonc-validator {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border: 2px solid #e1e4e8;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+.jsonc-validator textarea {
+    width: 100%;
+    min-height: 200px;
+    padding: 1rem;
+    border: 1px solid #d1d5da;
+    border-radius: 6px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 14px;
+    line-height: 1.45;
+    background-color: #ffffff;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.jsonc-validator textarea:focus {
+    outline: none;
+    border-color: #0366d6;
+    box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.1);
+}
+
+.validator-controls {
+    margin: 1rem 0;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.validator-controls button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#validate-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+#validate-btn:hover {
+    background-color: #218838;
+}
+
+#validate-btn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+#clear-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+#clear-btn:hover {
+    background-color: #5a6268;
+}
+
+.validation-result {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 6px;
+    min-height: 50px;
+}
+
+.validation-result .success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.validation-result .error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.validation-result details {
+    margin-top: 1rem;
+}
+
+.validation-result summary {
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.validation-result pre {
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 12px;
+    margin: 0;
+}
+
+.validation-result code {
+    background-color: transparent;
+    padding: 0;
+}
