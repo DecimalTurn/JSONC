@@ -73,12 +73,35 @@ or
 Try out JSONC validation directly in your browser:
 
 <div class="jsonc-validator">
-  <textarea id="jsonc-input" placeholder="Enter your JSONC data here...
-{
-  // This is a comment
-  &quot;name&quot;: &quot;Example&quot;,
-  &quot;version&quot;: &quot;1.0.0&quot;
-}" rows="10"></textarea>
+  <textarea id="jsonc-input" placeholder="Enter your JSONC data here..." rows="15" style="width: 100%; box-sizing: border-box; font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace; font-size: 14px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;">{
+  // JSONC Example - JSON with Comments
+  "name": "My Project",
+  "version": "1.0.0",
+  "description": "A sample project demonstrating JSONC features",
+  
+  // Configuration settings
+  "config": {
+    "port": 3000,
+    "host": "localhost",
+    /* 
+     * Database configuration
+     * Support for multiple environments
+     */
+    "database": {
+      "type": "postgresql",
+      "host": "localhost",
+      "port": 5432,
+      "name": "myapp_db"
+    }
+  },
+  
+  // Feature flags
+  "features": {
+    "enableLogging": true,
+    "enableCache": false,
+    "maxRetries": 3
+  }
+}</textarea>
   
   <div class="validator-controls">
     <button id="validate-btn" onclick="validateJSONC()">Validate JSONC</button>
