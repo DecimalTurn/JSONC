@@ -93,6 +93,6 @@ Here is a non-exhaustive list:
 
 ---
 
-[^1]: In VS Code, "the mode also accepts trailing commas, but they are discouraged and the editor will display a warning." ([source](https://code.visualstudio.com/docs/languages/json#_json-with-comments))
+[^1]: In VS Code, "the [JSONC] mode also accepts trailing commas, but they are discouraged and the editor will display a warning." ([source](https://code.visualstudio.com/docs/languages/json#_json-with-comments))
 
 
