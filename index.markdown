@@ -9,6 +9,8 @@ layout: default
 
 JSONC (JSON with Comments) is an extension of JSON (JavaScript Object Notation) that allows comments within JSON data. This specification defines the syntax and semantics of JSONC.
 
+The JSONC format was informally introduced by Microsoft to be used for VS Code's configuration files (settings.json, launch.json, tasks.json, etc.). Alongside the informal format, a publicly available parser ([jsonc-parser](https://www.npmjs.com/package/jsonc-parser)) was supplied to parse those configuration files. The goal of this specification is to formalize the JSONC format as what the jsonc-parser considers valid while using its default configurations.
+
 ## Syntax
 
 JSONC follows the same syntax rules as JSON with the addition of JavaScript style comments. Comments can be either single-line or multi-line.
@@ -42,7 +44,7 @@ Multi-line comments start with `/*` and end with `*/`. They can span multiple li
 
 ## Trailing commas
 
-JSONC doesn't allow trailing commas; however, we encourage parsers to be lenient and handle trailing commas gracefully where possible to reduce the risk of human edits introducing parsing errors.[^1]
+JSONC doesn't allow trailing commas. Indeed, the jsonc-parser doesn't support them while using default configurations since `allowTrailingComma` is an optional parameter that is false by default. For more information regarding trailing commas, please refer to the [trailing commas information page](/trailingcommas).
 
 ## Semantics
 
@@ -90,9 +92,5 @@ Here is a non-exhaustive list:
 
 **Rust**
 - [dprint/jsonc-parser](https://github.com/dprint/jsonc-parser)
-
----
-
-[^1]: In VS Code, "the [JSONC] mode also accepts trailing commas, but they are discouraged and the editor will display a warning." ([source](https://code.visualstudio.com/docs/languages/json#_json-with-comments))
 
 
