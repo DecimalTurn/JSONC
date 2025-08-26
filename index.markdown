@@ -79,7 +79,7 @@ Here is a non-exhaustive list:
 **C++**
 - [stephenberry/glaze](https://github.com/stephenberry/glaze)
 
-**Elexir**
+**Elixir**
 - [massivefermion/jsonc](https://github.com/massivefermion/jsonc)
 
 **Go**
