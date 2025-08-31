@@ -46,7 +46,7 @@ Multi-line comments start with `/*` and end with `*/`. They can span multiple li
 
 ## Trailing commas
 
-JSONC doesn't allow trailing commas. Indeed, the jsonc-parser doesn't support them while using default configurations since `allowTrailingComma` is an optional parameter that is false by default. For more information regarding trailing commas, please refer to the [trailing commas information page](/trailingcommas).
+JSONC doesn't allow trailing commas. For more information regarding trailing commas, refer to the [trailing commas information page](/trailingcommas).
 
 ## Semantics
 
