@@ -9,7 +9,7 @@ layout: default
 
 Trailing commas are not part of the JSONC Specification because the reference implementation, [jsonc-parser](https://www.npmjs.com/package/jsonc-parser), does not allow them unless explicitly configured. The `allowTrailingComma` option is set to `false` by default, so any trailing comma will result in a parsing error. 
 
-The reason why this specification chose the default behavior of the parser as the reference for the standard is to ensure that JSONC remains compatible with the broader JSON ecosystem, which does not allow trailing commas. This decision helps maintain consistency and predictability across different parsers and implementations. Namely, the tsconfig and eslint config files, which are widely used in the JavaScript ecosystem, do not allow trailing commas in their JSONC files.
+The reason why this specification chose the default behavior of the parser as the reference for the standard is to ensure that JSONC remains compatible with the broader JSON ecosystem, which does not allow trailing commas. This decision helps maintain consistency and predictability across different parsers and implementations. Namely, the [TSConfig](https://www.typescriptlang.org/tsconfig/) and [ESLint config](https://eslint.org/docs/latest/use/configure/configuration-files) files, which are widely used in the JavaScript ecosystem, do not allow trailing commas in their JSONC files.
 
 The exclusion of trailing commas also facilitates the creation of tools and libraries that can parse JSONC without needing to handle additional syntax variations. This helps ensure that JSONC remains a lightweight and straightforward extension of JSON, primarily focused on adding comments without introducing significant complexity.
 
