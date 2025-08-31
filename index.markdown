@@ -9,7 +9,9 @@ layout: default
 
 JSONC (JSON with Comments) is an extension of JSON (JavaScript Object Notation) that allows comments within JSON data. This specification defines the syntax and semantics of JSONC.
 
-The JSONC format was informally introduced by Microsoft to be used for VS Code's configuration files (settings.json, launch.json, tasks.json, etc.). Alongside the informal format, a publicly available parser ([jsonc-parser](https://www.npmjs.com/package/jsonc-parser)) was supplied to parse those configuration files. The goal of this specification is to formalize the JSONC format as what the jsonc-parser considers valid while using its default configurations.
+The JSONC format was informally introduced by Microsoft to be used for VS Code's configuration files (`settings.json`, `launch.json`, `tasks.json`, etc). Alongside the informal format, a publicly-available parser ([`jsonc-parser`]) was supplied to parse those configuration files. The goal of this specification is to formalize the JSONC format as what [`jsonc-parser`] considers valid while using its default configurations.
+
+[`jsonc-parser`]: https://www.npmjs.com/package/jsonc-parser
 
 ## Syntax
 
