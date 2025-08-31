@@ -13,11 +13,9 @@ The reason why this specification chose the default behavior of the parser as th
 
 The exclusion of trailing commas also facilitates the creation of tools and libraries that can parse JSONC without needing to handle additional syntax variations. This helps ensure that JSONC remains a lightweight and straightforward extension of JSON, primarily focused on adding comments without introducing significant complexity.
 
-## Can a Parser Choose to Support Trailing Commas?
+## Can a Parser That Chooses to Support Trailing Commas Still Be Considered a JSONC Parser?
 
-Yes, a parser can choose to support trailing commas in JSONC files for convenience. This is especially useful in configuration files or code where lists and objects are frequently edited. Allowing trailing commas can make adding, removing, or reordering items easier and reduce the likelihood of syntax errors. 
-
-However, this is not part of the official JSONC specification and such support would be considered an extension or variation of the standard JSONC format. This means that while a parser may allow trailing commas, it may not be compatible with all JSONC parsers or tools that strictly adhere to the JSONC specification without trailing commas.
+Yes, however this is not part of the official JSONC specification and such support would be considered an extension or variation of the standard JSONC format. This means that while a parser may allow trailing commas, it may not be compatible with all JSONC parsers or tools that strictly adhere to the JSONC specification without trailing commas.
 
 ## Trailing Commas in VS Code
 
