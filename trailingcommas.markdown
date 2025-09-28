@@ -11,6 +11,22 @@ Trailing commas are not part of the JSONC Specification because the reference im
 
 The reason why this specification chose the default behavior of the parser as the reference for the standard is to ensure that JSONC remains compatible with the broader JSON ecosystem, which does not allow trailing commas. This decision helps maintain consistency and predictability across different parsers and implementations. Namely, the [TSConfig](https://www.typescriptlang.org/tsconfig/) and [ESLint config](https://eslint.org/docs/latest/use/configure/configuration-files) files, which are widely used in the JavaScript ecosystem, do not allow trailing commas in their JSONC files.
 
+| File Name                   | Main Parser       | Main parser supports trailing commas | Known issues with other tools |
+|-----------------------------|-------------------|--------------------------------------|-------------------------------|
+| tsconfig.json               | [TypeScript][1]   | ✅                                   |                               |
+| .eslintrc.json              | [eslint][2]       | ❌                                   |                               |
+| .babelrc                    |                   |                                      |                               |
+| .devcontainer.json          |                   |                                      |                               |
+| .jscsrc                     |                   |                                      |                               |
+| .jshintrc                   |                   |                                      |                               |
+| .jslintrc                   |                   |                                      |                               |
+| .swcrc                      |                   |                                      |                               |
+| api-extractor.json          |                   |                                      |                               |
+| devcontainer.json           |                   |                                      |                               |
+| jsconfig.json               |                   |                                      |                               |
+| language-configuration.json |                   |                                      |                               |
+| tslint.json                 |                   |                                      |                               |
+
 The exclusion of trailing commas also facilitates the creation of tools and libraries that can parse JSONC without needing to handle additional syntax variations. This helps ensure that JSONC remains a lightweight and straightforward extension of JSON, primarily focused on adding comments without introducing significant complexity.
 
 ## Can a Parser That Chooses to Support Trailing Commas Still Be Considered a JSONC Parser?
@@ -25,3 +41,5 @@ At the time of writing this document, the "JSON with Comments" mode still accept
 
 
 
+[1]: https://github.com/microsoft/TypeScript/blob/5f183ad73dc1500209619cf52e174c45d73f8617/src/compiler/parser.ts#L1646
+[2]: https://github.com/eslint/eslint
