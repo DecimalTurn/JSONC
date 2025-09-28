@@ -14,7 +14,7 @@ The reason why this specification chose the default behavior of the parser as th
 | File Name                   | Main Parser       | Main parser supports trailing commas | Known issues with other tools |
 |-----------------------------|-------------------|--------------------------------------|-------------------------------|
 | tsconfig.json               | [TypeScript][1]   | ✅                                   |                               |
-| .eslintrc.json              | [eslint][2]       | ❌                                   |                               |
+| .eslintrc.json              | [eslint][2]       | ❌                                   | [Notes][3]                    |
 | .babelrc                    |                   |                                      |                               |
 | .devcontainer.json          |                   |                                      |                               |
 | .jscsrc                     |                   |                                      |                               |
@@ -28,6 +28,13 @@ The reason why this specification chose the default behavior of the parser as th
 | tslint.json                 |                   |                                      |                               |
 
 List of files taken from: https://github.com/prettier/prettier/blob/6c6a332171f590a38c369673662d1a5baf765167/tests/integration/__tests__/__snapshots__/support-info.js.snap#L524-L538
+    Do these files support JSONC? : https://github.com/prettier/prettier/issues/15945#issuecomment-1895371835
+
+Emmet snippets.json files:
+- Added to the list of json files that support comments here : https://github.com/microsoft/vscode/pull/257878
+- Related change: https://github.com/microsoft/vscode/commit/f57b024b18b2e5748d201b8be3408dfb1fb35ebb#diff-88456bc9b7caa2f8126aea0107b4671db0f094961aaf39a7c689f890e23aaaba
+- Original Emmet PR introducing support for comments, but not trailing commas: https://github.com/microsoft/vscode-emmet-helper/pull/11
+
 
 The exclusion of trailing commas also facilitates the creation of tools and libraries that can parse JSONC without needing to handle additional syntax variations. This helps ensure that JSONC remains a lightweight and straightforward extension of JSON, primarily focused on adding comments without introducing significant complexity.
 
@@ -45,3 +52,4 @@ At the time of writing this document, the "JSON with Comments" mode still accept
 
 [1]: https://github.com/microsoft/TypeScript/blob/5f183ad73dc1500209619cf52e174c45d73f8617/src/compiler/parser.ts#L1646
 [2]: https://github.com/eslint/eslint
+[3]: [Documentation](https://eslint.org/docs/latest/use/configure/configuration-files-deprecated#:~:text=JSON%20%2D%20use%20.eslintrc.json%20to%20define%20the%20configuration%20structure.%20ESLint%E2%80%99s%20JSON%20files%20also%20allow%20JavaScript%2Dstyle%20comments.)
