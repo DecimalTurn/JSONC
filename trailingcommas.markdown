@@ -27,6 +27,8 @@ The reason why this specification chose the default behavior of the parser as th
 | language-configuration.json |                   |                                      |                               |
 | tslint.json                 |                   |                                      |                               |
 
+List of files taken from: https://github.com/prettier/prettier/blob/6c6a332171f590a38c369673662d1a5baf765167/tests/integration/__tests__/__snapshots__/support-info.js.snap#L524-L538
+
 The exclusion of trailing commas also facilitates the creation of tools and libraries that can parse JSONC without needing to handle additional syntax variations. This helps ensure that JSONC remains a lightweight and straightforward extension of JSON, primarily focused on adding comments without introducing significant complexity.
 
 ## Can a Parser That Chooses to Support Trailing Commas Still Be Considered a JSONC Parser?
