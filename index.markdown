@@ -91,7 +91,6 @@ Here is a non-exhaustive list:
 
 **Python**
 - [n-takumasa/json-with-comments](https://github.com/n-takumasa/json-with-comments)
-- [NickolaiBeloguzov/jsonc-parser](https://github.com/NickolaiBeloguzov/jsonc-parser)
 
 **Rust**
 - [dprint/jsonc-parser](https://github.com/dprint/jsonc-parser)
