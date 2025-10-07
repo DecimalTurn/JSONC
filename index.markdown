@@ -99,4 +99,4 @@ Here is a non-exhaustive list:
 - [Jackson](https://github.com/FasterXML/jackson-core) `JsonFactory.enable(JsonReadFeature.ALLOW_JAVA_COMMENTS)` 
 
 **Kotlin**
-- [`kotlinx.serialization.json/JsonBuilder/allowComments`](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/allow-comments.html)
+- [kotlinx.serialization.json](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/allow-comments.html)
