@@ -90,9 +90,13 @@ Here is a non-exhaustive list:
 - [tidwall/jsonc](https://github.com/tidwall/jsonc)
 
 **Python**
-- [NickolaiBeloguzov/jsonc-parser](https://github.com/NickolaiBeloguzov/jsonc-parser)
+- [n-takumasa/json-with-comments](https://github.com/n-takumasa/json-with-comments)
 
 **Rust**
 - [dprint/jsonc-parser](https://github.com/dprint/jsonc-parser)
 
+**Java**
+- [Jackson](https://github.com/FasterXML/jackson-core) `JsonFactory.enable(JsonReadFeature.ALLOW_JAVA_COMMENTS)` 
 
+**Kotlin**
+- [kotlinx.serialization.json](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/allow-comments.html)
