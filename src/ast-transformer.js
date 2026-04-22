@@ -131,12 +131,14 @@ class ASTTransformer {
     }
 
     /**
-     * Normalize terminal text for display by unquoting ABNF string literals.
+     * Normalize terminal text for display by unquoting ABNF string literals
+     * and decoding hex sequences to their character equivalents.
      * @param {string} text - Raw terminal text from parser
      * @returns {string} Display text for diagrams
      * @private
      */
     _normalizeTerminalText(text) {
+        // Handle quoted strings: remove quotes and unescape
         const dquoteMatch = text.match(/^(?:%[si])?"([^"]*)"$/);
         if (dquoteMatch) {
             return dquoteMatch[1];
@@ -145,6 +147,19 @@ class ASTTransformer {
         const squoteMatch = text.match(/^(?:%[si])?'([^']*)'$/);
         if (squoteMatch) {
             return squoteMatch[1];
+        }
+
+        // Handle hex sequences like %x5B or %x2F.2A
+        const hexMatch = text.match(/^%x([0-9A-Fa-f]+(?:\.[0-9A-Fa-f]+)*)$/);
+        if (hexMatch) {
+            try {
+                const hexParts = hexMatch[1].split('.');
+                const codePoints = hexParts.map(part => parseInt(part, 16));
+                return String.fromCodePoint(...codePoints);
+            } catch (e) {
+                // If conversion fails, return original text
+                return text;
+            }
         }
 
         return text;
