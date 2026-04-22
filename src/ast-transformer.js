@@ -131,8 +131,29 @@ class ASTTransformer {
     }
 
     /**
+     * Map whitespace and control characters to symbolic representations.
+     * @param {string} char - Single character
+     * @returns {string|null} Symbolic name in angle brackets, or null if not special
+     * @private
+     */
+    _charToSymbol(char) {
+        const charCode = char.charCodeAt(0);
+        const symbolMap = {
+            0x09: 'TAB',    // Tab
+            0x0A: 'LF',     // Line Feed
+            0x0D: 'CR',     // Carriage Return
+            0x20: 'SP',     // Space
+            0x2028: 'LS',   // Line Separator
+            0x2029: 'PS',   // Paragraph Separator
+        };
+        const symbol = symbolMap[charCode];
+        return symbol ? `<${symbol}>` : null;
+    }
+
+    /**
      * Normalize terminal text for display by unquoting ABNF string literals
      * and decoding hex sequences to their character equivalents.
+     * Whitespace and control characters are displayed symbolically.
      * @param {string} text - Raw terminal text from parser
      * @returns {string} Display text for diagrams
      * @private
@@ -155,7 +176,15 @@ class ASTTransformer {
             try {
                 const hexParts = hexMatch[1].split('.');
                 const codePoints = hexParts.map(part => parseInt(part, 16));
-                return String.fromCodePoint(...codePoints);
+                const decoded = String.fromCodePoint(...codePoints);
+                
+                // Convert whitespace/control characters to symbols
+                let result = '';
+                for (const char of decoded) {
+                    const symbol = this._charToSymbol(char);
+                    result += symbol || char;
+                }
+                return result;
             } catch (e) {
                 // If conversion fails, return original text
                 return text;
