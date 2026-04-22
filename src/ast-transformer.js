@@ -31,7 +31,7 @@ class ASTTransformer {
         switch (element.type) {
             case 'terminal':
                 if (!element.text) throw new Error('Terminal element missing text');
-                return new TerminalElement(element.text);
+                return new TerminalElement(this._normalizeTerminalText(element.text));
 
             case 'nonterminal':
                 if (!element.text) throw new Error('Nonterminal element missing text');
@@ -128,6 +128,26 @@ class ASTTransformer {
             console.warn(`Unhandled repetition pattern: ${min}-${max}, treating as loop`);
             return new LoopElement(child);
         }
+    }
+
+    /**
+     * Normalize terminal text for display by unquoting ABNF string literals.
+     * @param {string} text - Raw terminal text from parser
+     * @returns {string} Display text for diagrams
+     * @private
+     */
+    _normalizeTerminalText(text) {
+        const dquoteMatch = text.match(/^(?:%[si])?"([^"]*)"$/);
+        if (dquoteMatch) {
+            return dquoteMatch[1];
+        }
+
+        const squoteMatch = text.match(/^(?:%[si])?'([^']*)'$/);
+        if (squoteMatch) {
+            return squoteMatch[1];
+        }
+
+        return text;
     }
 }
 
