@@ -31,7 +31,7 @@ class ASTTransformer {
         switch (element.type) {
             case 'terminal':
                 if (!element.text) throw new Error('Terminal element missing text');
-                return new TerminalElement(this._normalizeTerminalText(element.text));
+                return new TerminalElement(this._normalizeTerminalText(element.text), element.label || null);
 
             case 'nonterminal':
                 if (!element.text) throw new Error('Nonterminal element missing text');
